@@ -1,5 +1,5 @@
 .body{
-    background-color: sienna;
+    background-color: #E87722;
     padding-top: 50px;
     font-weight: bold;
     margin: 0;
@@ -13,3 +13,51 @@ h1{
     font-weight: 450;
     font-style: normal;
 }
+
+#resultDisplay {
+    margin-top: 2rem;
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.score{
+    border: 1px dotted firebrick;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    margin: 0 1rem;
+}
+
+.reset-button{
+    margin-top: 2rem;
+}
+.choices{
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.choicesbutton{
+    width: 200px; 
+    height: 50px; 
+    margin: 10px; 
+    line-height: 1;
+    font-size: 50px;
+    min-width: 90px;
+    margin: 0 10px;
+    border-radius: 275px;
+    border-color: black;
+    background: linear-gradient(to right, white, silver);
+    transform: scale(1);
+    transition: transform ease 1.75s;
+}
+.choices button:hover{
+    background-color: black;
+    transform: scale(0.75);
+}
+#resultDisplay {
+    font-size: 36px; /* Adjust the font size to your preference */
+  }

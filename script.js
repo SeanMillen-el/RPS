@@ -26,7 +26,7 @@ const getUserChoice = userInput => {
   }
   
   const determineWinner = (userChoice,computerChoice) => {
-    if (userChoice === 'bomb'){
+    if (userChoice === 'rock'){
         return 'user won';
         }else{
     if(userChoice === computerChoice){
@@ -54,18 +54,6 @@ const getUserChoice = userInput => {
     }
   };
   
-  // User, Computer
-  /*
-  console.log(determineWinner('paper','scissors'));
-  console.log(determineWinner('paper','rock'));
-  console.log(determineWinner('paper','paper'));
-  console.log(determineWinner('scissors','scissors'));
-  console.log(determineWinner('scissors','rock'));
-  console.log(determineWinner('scissors','paper'));
-  console.log(determineWinner('rock','scissors'));
-  console.log(determineWinner('rock','rock'));
-  console.log(determineWinner('rock','paper'));
-  */
   
   function playGame(input){
     const userChoice = getUserChoice(input);
