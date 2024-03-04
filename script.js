@@ -3,6 +3,15 @@ const playerScore = document.getElementById("playerScore");
 const computerScore = document.getElementById("computerScore");
 const resetButton = document.getElementById("resetButton");
 
+
+//prompt to ask username
+Window.onload = changeUsername();
+function changeUsername(element) {
+  var username = prompt("Enter your username:"); // Asks for your username
+  document.getElementById("username").innerHTML = username + ":"; // Displays Username
+}
+
+
 let playerPoints = 0;
 let computerPoints = 0;
 let tiePoints = 0;
