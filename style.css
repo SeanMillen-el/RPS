@@ -1,63 +1,69 @@
-.body{
-    background-color: #E87722;
+body {
+    background: darkgreen;
     padding-top: 50px;
     font-weight: bold;
     margin: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-h1{
+    font-family: "Roboto Condensed", sans-serif;
+  }
+  
+  h1 {
+    font-family: "Honk", system-ui;
     font-optical-sizing: auto;
-    font-weight: 450;
+    font-weight: 400;
     font-style: normal;
-}
-
-#resultDisplay {
+    font-variation-settings: "MORF" 15, "SHLN" 50;
+    font-size: 100px;
+    color: silver;
+  }
+  
+  #resultDisplay {
     margin-top: 2rem;
-}
-
-.scoreboard {
+  }
+  
+  .scoreboard {
     display: flex;
     justify-content: center;
     margin-top: 3rem;
-}
-
-.score{
-    border: 1px dotted firebrick;
+  }
+  
+  .score {
+    border: 1px solid black;
     padding: 0.5rem 1rem;
     font-size: 1.5rem;
     margin: 0 1rem;
-}
-
-.reset-button{
+  }
+  
+  .reset-button {
     margin-top: 2rem;
-}
-.choices{
+  }
+  .choices {
     margin-bottom: 30px;
     display: flex;
     justify-content: space-around;
-}
-
-.choicesbutton{
-    width: 200px; 
-    height: 50px; 
-    margin: 10px; 
+  }
+  
+  .choicesbutton {
+    width: 200px;
+    height: 50px;
+    margin: 10px;
     line-height: 1;
-    font-size: 50px;
+    font-size: 40px;
     min-width: 90px;
     margin: 0 10px;
-    border-radius: 275px;
-    border-color: black;
-    background: linear-gradient(to right, white, silver);
+    border-radius: 250px;
+    background:  whitesmoke;
     transform: scale(1);
-    transition: transform ease 1.75s;
-}
-.choices button:hover{
-    background-color: black;
-    transform: scale(0.75);
-}
-#resultDisplay {
-    font-size: 36px; /* Adjust the font size to your preference */
+    transition: transform ease 1s;
+    font-family: "Roboto Condensed", sans-serif;
+  }
+  .choices button:hover {
+    background-color: navy;
+    transform: scale(0.89);
+  }
+  
+  #resultDisplay {
+    font-size: 36px; 
   }

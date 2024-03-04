@@ -1,67 +1,69 @@
-const getUserChoice = userInput => {
-    userInput = userInput.toLowerCase();
-        if(userInput==='rock' ||
-         userInput==='paper' ||
-         userInput ==='scissors'){
-       return userInput;
-       }else  {
-           console.log('Invalid input');
-        return 'Check your input'
-       } 
-  };
-  
-  function getComputerChoice(){
-    const choiceVariable= Math.floor(Math.random()*3);
-    switch(choiceVariable){
-        case 0:
-        return 'rock';
-        break;
-        case 1:
-        return 'paper';
-        break;
-        case 2:
-        return 'scissors';
-        break;
-    }
+const resultDisplay = document.getElementById("resultDisplay");
+const playerScore = document.getElementById("playerScore");
+const computerScore = document.getElementById("computerScore");
+const resetButton = document.getElementById("resetButton");
+
+let playerPoints = 0;
+let computerPoints = 0;
+let tiePoints = 0;
+
+function computerSelection() {
+  const choices = ["rock", "paper", "scissors"];
+  const randomIndex = Math.floor(Math.random() * 3);
+  return choices[randomIndex];
+}
+
+function game(playerChoice, computerChoice) {
+  let result;
+
+  if (playerChoice === computerChoice) {
+    result = { message: "Tie!", computerChoice };
+  } else if (
+    (playerChoice === "rock" && computerChoice === "scissors") ||
+    (playerChoice === "paper" && computerChoice === "rock") ||
+    (playerChoice === "scissors" && computerChoice === "paper")
+  ) {
+    result = { message: computerChoice, "Player wins!"};
+  } else {
+    result = { message: computerChoice, "Computer wins!" };
   }
-  
-  const determineWinner = (userChoice,computerChoice) => {
-    if (userChoice === 'rock'){
-        return 'user won';
-        }else{
-    if(userChoice === computerChoice){
-      return 'Game was a tie';
-    }
-    if(userChoice === 'rock'){
-      if(computerChoice === 'paper'){
-         return 'computer won';
-      }else if (computerChoice ==='scissors'){
-         return 'user won';
-      }
-    }else if(userChoice === 'paper') {
-      if(computerChoice === 'rock'){
-         return 'user won';
-         }else if (computerChoice === 'scissors'){
-           return 'computer won';
-         }
-    }else if(userChoice === 'scissors'){
-      if(computerChoice === 'rock'){
-        return 'computer won';
-      }else if (computerChoice === 'paper'){
-        return 'user won';
-      }   
-    }
-    }
-  };
-  
-  
-  function playGame(input){
-    const userChoice = getUserChoice(input);
-    const computerChoice = getComputerChoice();
-    console.log('User choice is: ' + userChoice);
-    console.log('Computer choice is: ' + computerChoice);
-  console.log(determineWinner(userChoice,computerChoice));
+
+  return result;
+}
+
+function playGame(playerChoice) {
+  const computerChoice = computerSelection();
+  const result = game(playerChoice, computerChoice);
+
+  resultDisplay.textContent = `${result.message} Computer chose ${result.computerChoice}`;
+
+  if (result.message.includes("Player wins")) {
+    playerPoints++;
+    playerScore.textContent = playerPoints;
+  } else if (result.message.includes("Computer wins")) {
+    computerPoints++;
+    computerScore.textContent = computerPoints;
+  } else {
+    tiePoints++;
+    tieScore.textContent = tiePoints;
   }
-  
-  playGame('rock');
-  
+  endGame()
+}
+function endGame() {
+  if (playerPoints >= 3) {
+    resultDisplay.textContent = "You wins, you're the best!";
+    resetScore();
+  } else if (computerPoints >= 3) {
+    resultDisplay.textContent = "Computer wins, try again!";
+    resetScore();
+  }
+}
+
+function resetScore() {
+  playerPoints = 0;
+  computerPoints = 0;
+  tiePoints = 0;
+  playerScore.textContent = 0;
+  computerScore.textContent = 0;
+  tieScore.textContent = 0;
+}
