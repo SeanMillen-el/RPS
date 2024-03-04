@@ -8,31 +8,27 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bahianita&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Zeyada&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <h1>Rock Paper Scissors</h1>
+    <!-- Buttons for player choices -->
     <div class="choices">
         <button class="choicesbutton" onclick="playGame('rock')">Rock</button>
         <button class="choicesbutton" onclick="playGame('paper')">Paper</button>
         <button class="choicesbutton" onclick="playGame('scissors')">Scissors</button>
     </div>
+    <!-- Display area for game results -->
     <div id="resultDisplay"></div>
+    <!-- Scoreboard for player and computer scores -->
     <div class="scoreboard">
-        <div class="score p-score" id="username">Player: <span id="playerScore">0</span></div>
+        <div class="score p-score">Player: <span id="playerScore">0</span></div>
         <div class="score c-score">Computer: <span id="computerScore">0</span></div>
         <div class="score tie">Games Tied: <span id="tieScore">0</span></div>
-
+        <!-- Button to reset the score -->
         <div>
             <button id="resetButton" class="reset-button choicesbutton" onclick="resetScore()">
                 Reset
@@ -40,6 +36,7 @@
         </div>
     </div>
 
+    <!-- Link to external JavaScript file -->
     <script src="script.js"></script>
 </body>
 

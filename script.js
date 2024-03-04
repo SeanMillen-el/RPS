@@ -1,27 +1,22 @@
+
 const resultDisplay = document.getElementById("resultDisplay");
 const playerScore = document.getElementById("playerScore");
 const computerScore = document.getElementById("computerScore");
 const resetButton = document.getElementById("resetButton");
 
-
-//prompt to ask username
-Window.onload = changeUsername();
-function changeUsername(element) {
-  var username = prompt("Enter your username:"); // Asks for your username
-  document.getElementById("username").innerHTML = username + ":"; // Displays Username
-}
-
-
+// variables to track scores
 let playerPoints = 0;
 let computerPoints = 0;
 let tiePoints = 0;
 
+// select computer's choice
 function computerSelection() {
   const choices = ["rock", "paper", "scissors"];
   const randomIndex = Math.floor(Math.random() * 3);
   return choices[randomIndex];
 }
 
+// determine outcome
 function game(playerChoice, computerChoice) {
   let result;
 
@@ -32,35 +27,42 @@ function game(playerChoice, computerChoice) {
     (playerChoice === "paper" && computerChoice === "rock") ||
     (playerChoice === "scissors" && computerChoice === "paper")
   ) {
-    result = { message: computerChoice, "Player wins!"};
+    result = { message: "Player wins!", computerChoice };
   } else {
-    result = { message: computerChoice, "Computer wins!" };
+    result = { message: "Computer wins!", computerChoice };
   }
 
   return result;
 }
 
+// play a round of the game
 function playGame(playerChoice) {
+  // computer's choice
   const computerChoice = computerSelection();
+  // game outcome
   const result = game(playerChoice, computerChoice);
+
 
   resultDisplay.textContent = `${result.message} Computer chose ${result.computerChoice}`;
 
-  if (result.message.includes("Player wins")) {
+  // Update scores
+  if (result.message === "Player wins!") {
     playerPoints++;
     playerScore.textContent = playerPoints;
-  } else if (result.message.includes("Computer wins")) {
+  } else if (result.message === "Computer wins!") {
     computerPoints++;
     computerScore.textContent = computerPoints;
   } else {
     tiePoints++;
     tieScore.textContent = tiePoints;
   }
-  endGame()
+  // Check if the game has ended
+  endGame();
 }
+
 function endGame() {
   if (playerPoints >= 3) {
-    resultDisplay.textContent = "You wins, you're the best!";
+    resultDisplay.textContent = "You win, you're the best!";
     resetScore();
   } else if (computerPoints >= 3) {
     resultDisplay.textContent = "Computer wins, try again!";
@@ -68,6 +70,7 @@ function endGame() {
   }
 }
 
+// reset the scores
 function resetScore() {
   playerPoints = 0;
   computerPoints = 0;
